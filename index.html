@@ -1,87 +1,520 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Online Book Store</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookWorld - Online Book Store</title>
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ICONS -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
-    <center>
+<!-- HEADER -->
 
-        <h1>ABC Online Book Store</h1>
+<header class="header">
 
-        <p>Your Online Destination for Books</p>
+    <div class="logo">
+        <i class="fas fa-book-open"></i>
+        BookWorld
+    </div>
 
-        <hr>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#categories">Categories</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-        <a href="#">Home</a> |
-        <a href="#">Books</a> |
-        <a href="#">Categories</a> |
-        <a href="#">Offers</a> |
-        <a href="#">Contact Us</a>
+    <div class="header-right">
 
-        <hr>
+        <div class="cart-icon" onclick="openCart()">
+            <i class="fas fa-shopping-cart"></i>
+            Cart
+            <span id="cart-count">0</span>
+        </div>
 
-    </center>
+    </div>
 
-    <h2>Welcome to ABC Online Book Store</h2>
+</header>
 
-    <p>
-        Find books from different categories including technology,
-        programming, fiction, business and education.
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="tagline">WELCOME TO BOOKWORLD</span>
+
+        <h1>
+            Discover Your Next
+            <span>Favourite Book</span>
+        </h1>
+
+        <p>
+            Explore thousands of books from different categories.
+            Read more, learn more and grow more.
+        </p>
+
+        <a href="#books" class="shop-btn">
+            Shop Now <i class="fas fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800"
+        alt="Book Store">
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature-box">
+        <i class="fas fa-truck"></i>
+        <h3>Fast Delivery</h3>
+        <p>Quick and Safe Delivery</p>
+    </div>
+
+    <div class="feature-box">
+        <i class="fas fa-book"></i>
+        <h3>Quality Books</h3>
+        <p>Best Collection Available</p>
+    </div>
+
+    <div class="feature-box">
+        <i class="fas fa-tags"></i>
+        <h3>Best Offers</h3>
+        <p>Special Discounts</p>
+    </div>
+
+    <div class="feature-box">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Customer Assistance</p>
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="categories" id="categories">
+
+    <h2>Shop By Category</h2>
+
+    <p class="section-text">
+        Explore books according to your interest.
     </p>
 
-    <h2>Book Categories</h2>
+    <div class="category-container">
 
-    <ul>
-        <li>Programming</li>
-        <li>Computer Science</li>
-        <li>Business</li>
-        <li>Fiction</li>
-        <li>Competitive Exams</li>
-    </ul>
+        <div class="category-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>Programming</h3>
+        </div>
 
-    <h2>Popular Books</h2>
+        <div class="category-card">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Education</h3>
+        </div>
 
-    <table border="1">
+        <div class="category-card">
+            <i class="fas fa-book"></i>
+            <h3>Fiction</h3>
+        </div>
 
-        <tr>
-            <th>Book Name</th>
-            <th>Author</th>
-            <th>Price</th>
-        </tr>
+        <div class="category-card">
+            <i class="fas fa-briefcase"></i>
+            <h3>Business</h3>
+        </div>
 
-        <tr>
-            <td>Python Programming</td>
-            <td>John Smith</td>
-            <td>₹450</td>
-        </tr>
+        <div class="category-card">
+            <i class="fas fa-pen"></i>
+            <h3>Competitive Exams</h3>
+        </div>
 
-        <tr>
-            <td>Web Technology</td>
-            <td>David Brown</td>
-            <td>₹500</td>
-        </tr>
+    </div>
 
-        <tr>
-            <td>Database Management</td>
-            <td>Robert Lee</td>
-            <td>₹550</td>
-        </tr>
+</section>
 
-    </table>
 
-    <h2>Special Offer</h2>
+<!-- BOOK COLLECTION -->
 
-    <p>
-        Get 20% discount on selected books.
+<section class="books-section" id="books">
+
+    <h2>Our Popular Books</h2>
+
+    <p class="section-text">
+        Choose your favourite books at the best prices.
     </p>
 
-    <hr>
+    <!-- SEARCH -->
 
-    <center>
-        <p>© 2026 ABC Online Book Store</p>
-    </center>
+    <div class="search-box">
+
+        <input type="text"
+        id="searchInput"
+        placeholder="Search your favourite book...">
+
+        <button onclick="searchBooks()">
+            <i class="fas fa-search"></i>
+            Search
+        </button>
+
+    </div>
+
+
+    <!-- BOOK LIST -->
+
+    <div class="book-container" id="book-container">
+
+        <!-- BOOK 1 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400"
+            alt="Python Programming">
+
+            <div class="book-info">
+
+                <span class="book-category">Programming</span>
+
+                <h3>Python Programming</h3>
+
+                <p>Author: John Smith</p>
+
+                <h4>₹450</h4>
+
+                <button onclick="addToCart('Python Programming',450)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 2 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400"
+            alt="Web Development">
+
+            <div class="book-info">
+
+                <span class="book-category">Technology</span>
+
+                <h3>Web Development</h3>
+
+                <p>Author: David Brown</p>
+
+                <h4>₹550</h4>
+
+                <button onclick="addToCart('Web Development',550)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 3 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400"
+            alt="Business Management">
+
+            <div class="book-info">
+
+                <span class="book-category">Business</span>
+
+                <h3>Business Management</h3>
+
+                <p>Author: Robert Lee</p>
+
+                <h4>₹650</h4>
+
+                <button onclick="addToCart('Business Management',650)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 4 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=400"
+            alt="English Literature">
+
+            <div class="book-info">
+
+                <span class="book-category">Education</span>
+
+                <h3>English Literature</h3>
+
+                <p>Author: William James</p>
+
+                <h4>₹350</h4>
+
+                <button onclick="addToCart('English Literature',350)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 5 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=400"
+            alt="Rich Dad Poor Dad">
+
+            <div class="book-info">
+
+                <span class="book-category">Finance</span>
+
+                <h3>Rich Dad Poor Dad</h3>
+
+                <p>Author: Robert Kiyosaki</p>
+
+                <h4>₹399</h4>
+
+                <button onclick="addToCart('Rich Dad Poor Dad',399)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK 6 -->
+
+        <div class="book-card">
+
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400"
+            alt="Computer Science">
+
+            <div class="book-info">
+
+                <span class="book-category">Computer Science</span>
+
+                <h3>Computer Science</h3>
+
+                <p>Author: Mark Wilson</p>
+
+                <h4>₹599</h4>
+
+                <button onclick="addToCart('Computer Science',599)">
+                    <i class="fas fa-cart-plus"></i>
+                    Add To Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OFFER SECTION -->
+
+<section class="offer-section" id="offers">
+
+    <div>
+
+        <h2>Special Book Festival Offer!</h2>
+
+        <p>Get up to 20% discount on selected books.</p>
+
+        <a href="#books">Explore Books</a>
+
+    </div>
+
+    <i class="fas fa-book-open offer-icon"></i>
+
+</section>
+
+
+<!-- CART SECTION -->
+
+<section class="cart-section" id="cart-section">
+
+    <h2>
+        <i class="fas fa-shopping-cart"></i>
+        Your Shopping Cart
+    </h2>
+
+    <div id="cart-items">
+
+        <p>Your cart is empty.</p>
+
+    </div>
+
+    <div class="cart-total">
+
+        <h3>Total: ₹<span id="cart-total">0</span></h3>
+
+        <button onclick="showBilling()">
+            Proceed To Billing
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- CUSTOMER BILLING -->
+
+<section class="billing-section" id="billing-section">
+
+    <h2>Customer Billing Details</h2>
+
+    <div class="billing-form">
+
+        <label>Customer Name</label>
+
+        <input type="text"
+        id="customer-name"
+        placeholder="Enter customer name">
+
+        <label>Mobile Number</label>
+
+        <input type="tel"
+        id="customer-phone"
+        placeholder="Enter mobile number"
+        maxlength="10">
+
+        <label>Customer Address</label>
+
+        <textarea id="customer-address"
+        placeholder="Enter customer address"></textarea>
+
+        <button onclick="generateBill()">
+            Generate Invoice
+        </button>
+
+    </div>
+
+
+    <!-- INVOICE -->
+
+    <div id="invoice" style="display:none;">
+
+        <div class="invoice-header">
+
+            <h2>BOOKWORLD</h2>
+
+            <p>Online Book Store</p>
+
+            <h3>Customer Invoice</h3>
+
+        </div>
+
+        <div id="invoice-details"></div>
+
+        <div id="invoice-items"></div>
+
+        <div id="invoice-total"></div>
+
+        <button onclick="window.print()">
+            <i class="fas fa-print"></i>
+            Print Bill
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact-section" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>We are always here to help you.</p>
+
+    <div class="contact-info">
+
+        <p>
+            <i class="fas fa-envelope"></i>
+            support@bookworld.com
+        </p>
+
+        <p>
+            <i class="fas fa-phone"></i>
+            +91 9876543210
+        </p>
+
+        <p>
+            <i class="fas fa-map-marker-alt"></i>
+            Jaipur, Rajasthan, India
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>
+        <i class="fas fa-book-open"></i>
+        BookWorld
+    </h2>
+
+    <p>
+        Your Trusted Online Book Store
+    </p>
+
+    <p>
+        © 2026 BookWorld. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT LINK -->
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
